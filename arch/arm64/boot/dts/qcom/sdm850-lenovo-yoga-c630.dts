@@ -569,6 +569,8 @@
 &ufs_mem_phy {
 	status = "okay";
 
+	reset-gpios = <&tlmm 150 GPIO_ACTIVE_LOW>;
+
 	vdda-phy-supply = <&vdda_ufs1_core>;
 	vdda-pll-supply = <&vdda_ufs1_1p2>;
 };
