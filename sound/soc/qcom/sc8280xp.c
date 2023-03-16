@@ -75,6 +75,9 @@ static int sc8280xp_snd_prepare(struct snd_pcm_substream *substream)
 	struct sc8280xp_snd_data *data = snd_soc_card_get_drvdata(rtd->card);
 	struct sdw_stream_runtime *sruntime = data->sruntime[cpu_dai->id];
 
+	if (data->stream_prepared[cpu_dai->id])
+		return 0;
+
 	return qcom_snd_sdw_prepare(substream, sruntime,
 				    &data->stream_prepared[cpu_dai->id]);
 }
